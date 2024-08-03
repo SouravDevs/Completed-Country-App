@@ -1,20 +1,25 @@
 // import { useEffect, useState } from "react"
 import CountryCard from "./CountryCard"
-import countriesData from '../countryData'
+import { useEffect, useState } from "react"
+import ShimmerEffect from "./ShimmerEffect"
 
 export default function CountriesContainer({query}) {
-  // const [countriesData, setCountriesData] = useState([])
+  const [countriesData, setCountriesData] = useState([])
 
 
-// useEffect(() => {
-//   const url = 'https://restcountries.com/v3.1/all'
-//   fetch(url)
-//   .then((res) => res.json())
-//   .then((data) => {
-//     setCountriesData(data)
-//   })
+useEffect(() => {
+  const url = 'https://restcountries.com/v3.1/all'
+  fetch(url)
+  .then((res) => res.json())
+  .then((data) => {
+    setCountriesData(data)
+  })
 
-// },[])
+},[])
+
+if(countriesData.length === 0) {
+  return (<ShimmerEffect />)
+}
 
  
   return (
@@ -25,8 +30,9 @@ export default function CountriesContainer({query}) {
               country.name.common.toLowerCase().includes(query)
           ).map((country) => {
        
-            return <CountryCard name={country.name.common} population={country.population} region={country.region} 
+            return <CountryCard key={country.name.common} name={country.name.common} population={country.population} region={country.region} 
             flag={country.flags.svg} capital={country.capital?.[0]}
+            data={country}
             />
         })
         }

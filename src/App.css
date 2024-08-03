@@ -13,14 +13,24 @@ body {
   color: var(--text-color);
 }
 
-body.dark {
-  --background-color: hsl(207, 26%, 17%); 
-  --text-color: white;
-  --elements-color: hsl(209, 23%, 22%);
+main {
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 main {
   padding: 24px;
+}
+
+main.dark{
+  --background-color: hsl(209, 37%, 29%); 
+  --text-color: white;
+  --elements-color: hsl(209, 23%, 22%);
+}
+
+header.dark  {
+  background-color: hsl(209, 37%, 29%);
+  color: white;
 }
 
 a {
