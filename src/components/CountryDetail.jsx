@@ -48,7 +48,7 @@ export default function CountryDetail() {
     <main className={`${isDark ? 'dark' : ''}`}>
       <h1 style={{textAlign : 'center'}}>{windowSize.width} X {windowSize.height}</h1>
       <div className="country-details-container">
-        <span className="back-button">
+        <span classNNme="back-button">
           <i className="fa-solid fa-arrow-left" ></i>&nbsp; Back
         </span>
         <div className="country-details">
