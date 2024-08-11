@@ -1,26 +1,19 @@
-import React, { useContext, useEffect } from "react";
+import React, {  } from "react";
 import { useState } from "react";
 import SearchBar from "./SearchBar";
 import SelectMenu from "./SelectMenu";
 import CountriesContainer from "./CountriesContainer";
-import { ThemeContext } from "../contexts/ThemeContext";
-
-
-
-
+import { useTheme } from "../hooks/useTheme";
 
 export default function Home() {
   const [query, setQuery] = useState("");
 
- 
- 
-
-  const [isDark] = useContext(ThemeContext);
+  const [isDark] = useTheme()
   return (
     <main className={`${isDark ? "dark" : ""}`}>
       <div className="search-filter-container">
         <SearchBar setQuery={setQuery} />
-        <SelectMenu />
+        <SelectMenu setQuery={setQuery}/>
       </div>
 
       <CountriesContainer query={query} />
