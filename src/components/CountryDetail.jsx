@@ -49,9 +49,7 @@ export default function CountryDetail() {
       <h1 style={{textAlign : 'center'}}>{windowSize.width} X {windowSize.height}</h1>
       <div className="country-details-container">
         <span className="back-button">
-          <i className="fa-solid fa-arrow-left" onClick={() => {
-            history.back()
-          }}></i>&nbsp; Back
+          <i className="fa-solid fa-arrow-left" ></i>&nbsp; Back
         </span>
         <div className="country-details">
           <img className="country-flag" src={countryData.flag} alt={`flag`} />
