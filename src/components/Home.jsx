@@ -4,7 +4,7 @@ import SearchBar from "./SearchBar";
 import SelectMenu from "./SelectMenu";
 import CountriesContainer from "./CountriesContainer";
 import { ThemeContext } from "../contexts/ThemeContext";
-import { useWindowSize } from "../hooks/useWIndowSize.js";
+
 
 
 
@@ -13,7 +13,7 @@ export default function Home() {
   const [query, setQuery] = useState("");
 
  
-  const windowSize = useWindowSize()
+ 
 
   const [isDark] = useContext(ThemeContext);
   return (
@@ -22,7 +22,7 @@ export default function Home() {
         <SearchBar setQuery={setQuery} />
         <SelectMenu />
       </div>
-      <h1 style={{textAlign: 'center'}}>{windowSize.width} X {windowSize.height}</h1>
+
       <CountriesContainer query={query} />
     </main>
   );
