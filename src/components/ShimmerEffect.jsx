@@ -7,7 +7,7 @@ export default function ShimmerEffect() {
         
        {
         Array.from({length: 10}).map((el, i) => {
-          return <div className='country-card shimmer-card'></div>
+          return <div key={i} className='country-card shimmer-card'></div>
         })
        }
     </div>

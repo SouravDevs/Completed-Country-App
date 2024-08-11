@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useOutletContext, useParams } from "react-router-dom";
 import "./countryDetail.css";
+import { useWindowSize } from "../hooks/useWIndowSize";
 
 export default function CountryDetail() {
   const params = useParams();
@@ -10,6 +11,8 @@ export default function CountryDetail() {
   // Use State
   const [countryData, setCountryData] = useState({});
   const [notFound, setNotFound] = useState(false);
+
+  const windowSize = useWindowSize()
 
   useEffect(() => {
     fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
@@ -43,9 +46,12 @@ export default function CountryDetail() {
     "Loading..."
   ) : (
     <main className={`${isDark ? 'dark' : ''}`}>
+      <h1 style={{textAlign : 'center'}}>{windowSize.width} X {windowSize.height}</h1>
       <div className="country-details-container">
         <span className="back-button">
-          <i className="fa-solid fa-arrow-left"></i>&nbsp; Back
+          <i className="fa-solid fa-arrow-left" onClick={() => {
+            history.back()
+          }}></i>&nbsp; Back
         </span>
         <div className="country-details">
           <img className="country-flag" src={countryData.flag} alt={`flag`} />

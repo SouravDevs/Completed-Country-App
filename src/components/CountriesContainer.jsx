@@ -27,7 +27,7 @@ if(countriesData.length === 0) {
     <div className='countries-container'>
         {
           countriesData.filter((country) => 
-              country.name.common.toLowerCase().includes(query)
+              country.name.common.toLowerCase().includes(query)  || country.region.toLowerCase().includes(query)
           ).map((country) => {
        
             return <CountryCard key={country.name.common} name={country.name.common} population={country.population} region={country.region} 
